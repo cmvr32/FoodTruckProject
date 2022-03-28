@@ -1,36 +1,39 @@
 package FoodTrucks;
 
 public class FoodTruck {
-	//THIS IS A BLUEPRINT
+	// THIS IS A BLUEPRINT
 
 	/*
-	 * You will define a FoodTruck class with fields for a unique numeric id, a name
-	 * ("TacoRific", "Mediterranean Medic", etc.), food type ("Tacos", "Falafel",
-	 * etc.), and a numeric rating.
+	 * DONE You will define a FoodTruck class with fields for a unique numeric id, a
+	 * name ("TacoRific", "Mediterranean Medic", etc.), food type ("Tacos",
+	 * "Falafel", etc.), and a numeric rating.
 	 */
 
 	private int truckId;
+	private static int truckCount = 0;
 	private String truckName;
 	private String foodType;
 	private double truckRating;
-	
 
 	public FoodTruck() {
 	}
 
 	public FoodTruck(String truckName, String foodType, double truckRating) {
 		super();
+		
+		this.truckId = truckCount;
+		truckCount = truckCount + 1;
 		this.truckName = truckName;
 		this.foodType = foodType;
 		this.truckRating = truckRating;
 	}
 
-	public static int getTruckId() {
+	public int getTruckId() {
 		return truckId;
 	}
 
-	public static void setTruckId(int TruckId) {
-		FoodTruck.truckId = TruckId;
+	public void setTruckId(int TruckId) {
+		this.truckId = TruckId;
 	}
 
 	public String getTruckName() {
@@ -58,7 +61,8 @@ public class FoodTruck {
 	}
 
 	public String toString() {
-		String output = "Truck Name: " + truckName + " Type of food: " + foodType + " Rating (0-5): " + truckRating + "Truck Id" + truckId;
+		String output = "Truck Name: " + truckName + " Type of food: " + foodType + " Rating (0-5): " + truckRating
+				+ " Truck Id: " + truckId;
 		return output;
 	}
 
